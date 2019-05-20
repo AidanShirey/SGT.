@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:id="@+id/signup">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/sgtlogo"
+        android:text="SGT"
+        android:textSize="100sp"
+        android:fontFamily="sans"
+        android:textColor="@color/colorText"
+        app:layout_constraintTop_toTopOf="@+id/signup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/userprompt"
+        android:text="Username"
+        android:textSize="24sp"
+        android:fontFamily="sans"
+        android:textColor="@color/colorText"
+        app:layout_constraintTop_toBottomOf="@+id/sgtlogo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/userentry"
+        android:layout_width="125sp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText"
+        android:background="@color/colorTextBoxBackground"
+        android:gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userprompt" />
+
+    <TextView
+        android:id="@+id/emailprompt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Email"
+        android:textSize="24sp"
+        android:fontFamily="sans"
+        android:textColor="@color/colorText"
+        app:layout_constraintTop_toBottomOf="@+id/userentry"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/emailentry"
+        android:layout_height="wrap_content"
+        android:layout_width="250sp"
+        android:background="@color/colorTextBoxBackground"
+        android:textColor="@color/colorText"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/emailprompt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/passprompt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Password"
+        android:textSize="24sp"
+        android:fontFamily="sans"
+        android:textColor="@color/colorText"
+        app:layout_constraintTop_toBottomOf="@+id/emailentry"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/passentry"
+        android:layout_height="wrap_content"
+        android:layout_width="125sp"
+        android:background="@color/colorTextBoxBackground"
+        android:textColor="@color/colorText"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/passprompt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/confirmpassprompt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Confirm Password"
+        android:textSize="24sp"
+        android:fontFamily="sans"
+        android:textColor="@color/colorText"
+        app:layout_constraintTop_toBottomOf="@+id/passentry"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/confirmpassentry"
+        android:layout_height="wrap_content"
+        android:layout_width="125sp"
+        android:background="@color/colorTextBoxBackground"
+        android:textColor="@color/colorText"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/confirmpassprompt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/signupbutton"
+        android:text="register"
+        android:textColor="@color/colorText"
+        android:background="@color/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+</android.support.constraint.ConstraintLayout>
