@@ -18,7 +18,6 @@ public class QuizActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // declare QuizActivity in the manifest before uncommenting this!
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }

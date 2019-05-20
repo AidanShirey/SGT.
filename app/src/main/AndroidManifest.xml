@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.java.SGT.SignUpActivity"
+            android:name="com.java.SGT.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUpActivity"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".BriefingActivity"/>
         <activity android:name=".QuizActivity"/>
