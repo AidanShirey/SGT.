@@ -25,7 +25,7 @@
         android:id="@+id/emailprompt"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Email"
+        android:text="Username"
         android:textSize="24sp"
         android:fontFamily="sans"
         android:textColor="@color/colorText"

@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class LoginActivity extends Activity {
     private Button login;
     private Button signup;
-    private EditText email;
+    private EditText username;
     private EditText pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,15 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login);
         login = findViewById(R.id.loginbutton);
         signup = findViewById(R.id.signupbutton);
-        email = findViewById(R.id.emailentry);
+        username = findViewById(R.id.emailentry);
         pass = findViewById(R.id.passentry);
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 intent.putExtra("login", true);
+                intent.putExtra("username", username.getText().toString());
                 startActivity(intent);
             }
         });

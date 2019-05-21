@@ -19,6 +19,7 @@ public class QuizActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                intent.putExtra("login", false);
                 startActivity(intent);
             }
         });

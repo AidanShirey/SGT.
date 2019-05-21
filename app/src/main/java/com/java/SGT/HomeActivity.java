@@ -3,11 +3,20 @@ package com.java.SGT;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends Activity {
     private ListView cards;
@@ -16,7 +25,9 @@ public class HomeActivity extends Activity {
     private TextView name;
     private TextView rank;
     private String namestring = "Name";
-
+    private User user;
+    private FirebaseDatabase database;
+    private DatabaseReference userRef;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -24,9 +35,21 @@ public class HomeActivity extends Activity {
         cards = findViewById(R.id.lvcard);
         name = findViewById(R.id.name);
         Intent mintent = getIntent();
-        if (mintent.getExtras().getBoolean("login") == false)
-            namestring = mintent.getExtras().getString("username");
-        name.setText(namestring);
+        namestring = mintent.getExtras().getString("username");
+        database = FirebaseDatabase.getInstance();
+        userRef = database.getReference("users");
+        userRef.child(namestring).child("usern").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String temp = dataSnapshot.getValue(String.class);
+                name.setText(temp);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         rank = findViewById(R.id.rank);
         cards.addHeaderView(new View(this));
         cards.addFooterView(new View(this));
