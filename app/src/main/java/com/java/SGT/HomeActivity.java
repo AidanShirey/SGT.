@@ -7,18 +7,27 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class HomeActivity extends Activity {
     private ListView cards;
     private CardArrayAdapter cardArrayAdapter;
     private CardView card;
-
+    private TextView name;
+    private TextView rank;
+    private String namestring = "Name";
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         cards = findViewById(R.id.lvcard);
+        name = findViewById(R.id.name);
+        Intent mintent = getIntent();
+        if (mintent.getExtras().getBoolean("login") == false)
+            namestring = mintent.getExtras().getString("username");
+        name.setText(namestring);
+        rank = findViewById(R.id.rank);
         cards.addHeaderView(new View(this));
         cards.addFooterView(new View(this));
         cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.layout.cardviewlayout);

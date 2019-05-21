@@ -30,7 +30,7 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
     public static final String file7 = "riskmanage.pdf";
     public static final String file8 = "suicide.pdf";
     public static final String file9 = "conduct.pdf";
-    public static final String file10 = "suicide.pdf";
+    public static final String file10 = "evaluations.pdf";
     public static final String file11 = "traditions.pdf";
     public static final String file12 = "traditions.pdf";
 

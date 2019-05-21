@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "125237800932",
+    "firebase_url": "https://sgtdata-345f4.firebaseio.com",
+    "project_id": "sgtdata-345f4",
+    "storage_bucket": "sgtdata-345f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125237800932:android:128d17a69522ece6",
+        "android_client_info": {
+          "package_name": "com.java.SGT"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125237800932-9mkf68nobfj3u4ljo56h6p337i1eqshj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2KnHXx73SY6XeRP3im_qnVekA58x66yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125237800932-9mkf68nobfj3u4ljo56h6p337i1eqshj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
