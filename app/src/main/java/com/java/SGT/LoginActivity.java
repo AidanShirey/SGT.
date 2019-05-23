@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends Activity {
     private Button login;
     private Button signup;
@@ -25,6 +27,7 @@ public class LoginActivity extends Activity {
     private User ultimateuser;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    Quiz uquiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +102,8 @@ public class LoginActivity extends Activity {
             @Override
             public void onCancelled(DatabaseError databaseError) {}
         });
+
+
 
     }
 }

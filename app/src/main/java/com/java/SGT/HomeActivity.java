@@ -48,6 +48,7 @@ public class HomeActivity extends Activity {
 
             }
         });
+
         rank = findViewById(R.id.rank);
         cards.addHeaderView(new View(this));
         cards.addFooterView(new View(this));
@@ -63,6 +64,7 @@ public class HomeActivity extends Activity {
                 // switch to briefing activity
                 Intent intent = new Intent(getApplicationContext(), BriefingActivity.class);
                 intent.putExtra("taskselect", position);
+                intent.putExtra("username", namestring);
                 startActivity(intent);
             }
         });

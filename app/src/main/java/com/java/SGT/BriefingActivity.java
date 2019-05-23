@@ -20,6 +20,7 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
     String pdfFile;
     Button button;
     Integer pageNumber = 0;
+    private int select;
     private static final String TAG = BriefingActivity.class.getSimpleName();
     public static final String file1 = "customs.pdf";
     public static final String file2 = "traditions.pdf";
@@ -33,24 +34,27 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
     public static final String file10 = "evaluations.pdf";
     public static final String file11 = "traditions.pdf";
     public static final String file12 = "traditions.pdf";
-
+    private String namestring;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.briefing);
-
+        Intent mintent = getIntent();
+        namestring = mintent.getExtras().getString("username");
+        select = getIntent().getIntExtra("taskselect", 0);
         button = findViewById(R.id.quizbutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // declare QuizActivity in the manifest before uncommenting this!
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                intent.putExtra("username", namestring);
+                intent.putExtra("taskselect", select);
                 startActivity(intent);
             }
         });
         pdfview = findViewById(R.id.pdfView);
-        int select = getIntent().getIntExtra("taskselect", 0);
         if (select == 1)
             displayFromAsset(file1);
         else if (select == 2)
