@@ -38,6 +38,8 @@ public class LoginActivity extends Activity {
         pass = findViewById(R.id.passentry);
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         database = FirebaseDatabase.getInstance();
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +61,7 @@ public class LoginActivity extends Activity {
                 startActivity(intent);
             }
         });
+
 
     }
 
