@@ -2039,8 +2039,9 @@ public class QuizActivity extends Activity {
                                                     String type = dataSnapshot.getValue(String.class);
                                                     choice1selectpath = 0;
                                                     choice2selectpath = 1;
-                                                    choice3selectpath = 2;
-                                                    if (type.equals("m")) {
+                                                    if (type.equals("t")) {
+                                                        choice3answer.setVisibility(View.INVISIBLE);
+                                                        choice3.setVisibility(View.INVISIBLE);
                                                         myRef.child(quizselectpath).child("choices").child(choice1selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -2065,6 +2066,39 @@ public class QuizActivity extends Activity {
 
                                                             }
                                                         });
+                                                    }
+                                                    else if(type.equals("m")){
+                                                        choice3selectpath = 2;
+                                                        if (choice3answer.getVisibility() == View.INVISIBLE && choice3.getVisibility() == View.INVISIBLE){
+                                                            choice3answer.setVisibility(View.VISIBLE);
+                                                            choice3.setVisibility(View.VISIBLE);
+                                                        }
+
+                                                        myRef.child(quizselectpath).child("choices").child(choice1selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                String temp = dataSnapshot.getValue(String.class);
+                                                                choice1answer.setText(temp);
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                            }
+                                                        });
+                                                        myRef.child(quizselectpath).child("choices").child(choice2selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                String temp = dataSnapshot.getValue(String.class);
+                                                                choice2answer.setText(temp);
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                            }
+                                                        });
+
                                                         myRef.child(quizselectpath).child("choices").child(choice3selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

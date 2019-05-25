@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +22,7 @@ public class SignUpActivity extends Activity {
     private EditText email;
     private EditText pass;
     private EditText confirmpass;
+    private ProgressBar wheel;
     private ImageView logo;
     private Button signup;
     String username;
@@ -38,6 +41,7 @@ public class SignUpActivity extends Activity {
         database = FirebaseDatabase.getInstance();
 
         // SET UP INTERACTIONS
+        wheel = findViewById(R.id.progress);
         logo = findViewById(R.id.sgtlogo);
         user = findViewById(R.id.userentry);
         pass = findViewById(R.id.passentry);
@@ -47,10 +51,49 @@ public class SignUpActivity extends Activity {
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         confirmpass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
-        // SET UP BUTTON ON CLICK LISTENER
+        // SET UP LISTENERS
+
+        user.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        confirmpass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wheel.setVisibility(View.VISIBLE);
+                signup.setVisibility(View.INVISIBLE);
                 username = user.getText().toString();
                 password = pass.getText().toString();
                 cpassword = confirmpass.getText().toString();
@@ -67,6 +110,11 @@ public class SignUpActivity extends Activity {
 
     }
 
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     public boolean validateInfo (User users, String conpass){
         // Here we check if the entered information is correct
         // Check if username is in correct format
@@ -76,6 +124,10 @@ public class SignUpActivity extends Activity {
             char c = temp.charAt(i);
             if(c == '.' || c == '#' || c == '$' || c == '[' || c == ']') {
                 Toast.makeText(SignUpActivity.this, "Username format incorrect: No \'.\', \'#\', \'$\', \'[\', or \']\'.\'", Toast.LENGTH_LONG).show();
+                if (wheel.getVisibility() == View.VISIBLE)
+                    wheel.setVisibility(View.INVISIBLE);
+                if (signup.getVisibility() == View.INVISIBLE)
+                    signup.setVisibility(View.VISIBLE);
                 return false;
             }
         }
@@ -93,10 +145,18 @@ public class SignUpActivity extends Activity {
         }
         if (!(atsymbol && period)) {
             Toast.makeText(SignUpActivity.this, "Email format incorrect: Not a valid email.", Toast.LENGTH_SHORT).show();
+            if (wheel.getVisibility() == View.VISIBLE)
+                wheel.setVisibility(View.INVISIBLE);
+            if (signup.getVisibility() == View.INVISIBLE)
+                signup.setVisibility(View.VISIBLE);
             return false;
         }
         if(!users.password.equals(conpass)) {
             Toast.makeText(SignUpActivity.this, "Passwords incorrect: passwords do not match.", Toast.LENGTH_SHORT).show();
+            if (wheel.getVisibility() == View.VISIBLE)
+                wheel.setVisibility(View.INVISIBLE);
+            if (signup.getVisibility() == View.INVISIBLE)
+                signup.setVisibility(View.VISIBLE);
             return false;
         }
         // No problems with format, return true
@@ -116,6 +176,10 @@ public class SignUpActivity extends Activity {
                 }
                 else {
                     Toast.makeText(SignUpActivity.this, "Username error: username already exists.", Toast.LENGTH_SHORT).show();
+                    if (wheel.getVisibility() == View.VISIBLE)
+                        wheel.setVisibility(View.INVISIBLE);
+                    if (signup.getVisibility() == View.INVISIBLE)
+                        signup.setVisibility(View.VISIBLE);
                 }
             }
 
