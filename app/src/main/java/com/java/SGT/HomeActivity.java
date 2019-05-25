@@ -66,6 +66,7 @@ public class HomeActivity extends Activity {
                 intent.putExtra("taskselect", position);
                 intent.putExtra("username", namestring);
                 startActivity(intent);
+                finish();
             }
         });
     }

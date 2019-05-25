@@ -216,6 +216,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -254,6 +255,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -292,6 +294,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -697,6 +700,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -1018,6 +1022,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -1338,6 +1343,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -2089,6 +2095,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -2717,6 +2724,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -3345,6 +3353,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -4551,6 +4560,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -5635,6 +5645,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -6719,6 +6730,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -8345,6 +8357,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -9849,6 +9862,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -11353,6 +11367,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -13394,6 +13409,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -15312,6 +15328,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
@@ -17230,6 +17247,7 @@ public class QuizActivity extends Activity {
                                 intent.putExtra("login", false);
                                 intent.putExtra("username", namestring);
                                 startActivity(intent);
+                                finish();
                             }
                         }
 

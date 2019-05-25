@@ -52,6 +52,7 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
                 intent.putExtra("username", namestring);
                 intent.putExtra("taskselect", select);
                 startActivity(intent);
+                finish();
             }
         });
         pdfview = findViewById(R.id.pdfView);

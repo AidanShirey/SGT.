@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ public class LoginActivity extends Activity {
     private String password;
     private boolean infocheck;
     private User ultimateuser;
+    private ProgressBar wheel;
     FirebaseDatabase database;
     DatabaseReference myRef;
     Quiz uquiz;
@@ -34,18 +36,24 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        wheel = findViewById(R.id.progress);
         logo = findViewById(R.id.sgtlogo);
         login = findViewById(R.id.loginbutton);
         signup = findViewById(R.id.signupbutton);
-        username = findViewById(R.id.emailentry);
+        username = findViewById(R.id.userentry);
         pass = findViewById(R.id.passentry);
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         database = FirebaseDatabase.getInstance();
-
+        if (wheel.getVisibility() == View.VISIBLE)
+            wheel.setVisibility(View.INVISIBLE);
+        if (login.getVisibility() == View.INVISIBLE)
+            login.setVisibility(View.VISIBLE);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wheel.setVisibility(View.VISIBLE);
+                login.setVisibility(View.INVISIBLE);
                 usern = username.getText().toString();
                 password = pass.getText().toString();
                 User nuser = new User(username.getText().toString(), "", pass.getText().toString());
@@ -67,6 +75,7 @@ public class LoginActivity extends Activity {
 
 
     }
+
 
     public boolean validateInfo(User users)
     {
@@ -95,6 +104,7 @@ public class LoginActivity extends Activity {
                         intent.putExtra("username", usern);
                         intent.putExtra("login", true);
                         startActivity(intent);
+                        finish();
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "Login failed. Password incorrect.", Toast.LENGTH_SHORT).show();
