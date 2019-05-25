@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,7 @@ public class LoginActivity extends Activity {
     private EditText username;
     private EditText pass;
     private String usern;
+    private ImageView logo;
     private String password;
     private boolean infocheck;
     private User ultimateuser;
@@ -32,6 +34,7 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        logo = findViewById(R.id.sgtlogo);
         login = findViewById(R.id.loginbutton);
         signup = findViewById(R.id.signupbutton);
         username = findViewById(R.id.emailentry);

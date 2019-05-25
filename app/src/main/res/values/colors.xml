@@ -5,6 +5,7 @@
     <color name="colorBackground">#343434</color>
     <color name="colorTextBoxBackground">#414141</color>
     <color name="colorCardColor">#1e1e1e</color>
-    <color name="colorText">#eaeab4</color>
-    <color name="colorAccent">#eaeab4</color>
+    <color name="colorText">#f3c463</color>
+    <color name="colorAccent">#f3c463</color>
+    <color name="colorTopbar">#414141</color>>
 </resources>

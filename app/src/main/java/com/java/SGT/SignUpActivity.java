@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ public class SignUpActivity extends Activity {
     private EditText email;
     private EditText pass;
     private EditText confirmpass;
+    private ImageView logo;
     private Button signup;
     String username;
     String eml;
@@ -36,6 +38,7 @@ public class SignUpActivity extends Activity {
         database = FirebaseDatabase.getInstance();
 
         // SET UP INTERACTIONS
+        logo = findViewById(R.id.sgtlogo);
         user = findViewById(R.id.userentry);
         pass = findViewById(R.id.passentry);
         confirmpass = findViewById(R.id.confirmpassentry);

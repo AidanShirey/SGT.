@@ -5,44 +5,53 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorBackground">
-
-    <android.support.v7.widget.Toolbar
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:elevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <android.support.constraint.ConstraintLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            >
+        android:id="@+id/topbar"
+        android:background="@color/colorTextBoxBackground"
+        >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
                 android:text="Name"
                 android:textColor="@color/colorText"
-                android:textSize="18sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="@id/topbar"
+                app:layout_constraintLeft_toLeftOf="@id/topbar"
+                app:layout_constraintBottom_toBottomOf="@id/topbar"
+                />
+
+            <ImageView
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:src="@drawable/sgt_logo_home"
+                android:id="@+id/hometop"
+                android:textColor="@color/colorText"
+                app:layout_constraintLeft_toLeftOf="@id/name"
+                app:layout_constraintRight_toRightOf="@id/rank"
+                app:layout_constraintTop_toTopOf="@id/topbar"
+                app:layout_constraintBottom_toBottomOf="@id/topbar"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="12dp"
                 android:id="@+id/rank"
                 android:text="Rank"
+                android:layout_marginRight="10dp"
                 android:textColor="@color/colorText"
-                android:textSize="18sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-        </android.support.constraint.ConstraintLayout>
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintRight_toRightOf="@id/topbar"
+                app:layout_constraintTop_toTopOf="@id/topbar"
+                app:layout_constraintBottom_toBottomOf="@id/topbar"
 
-    </android.support.v7.widget.Toolbar>
+                />
+    </android.support.constraint.ConstraintLayout>
 
 
     <ListView

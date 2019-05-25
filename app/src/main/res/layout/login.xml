@@ -7,14 +7,11 @@
     android:background="@color/colorBackground"
     android:id="@+id/signup">
 
-    <TextView
+    <ImageView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/sgtlogo"
-        android:text="SGT"
-        android:textSize="100sp"
-        android:fontFamily="sans"
-        android:textColor="@color/colorText"
+        android:src="@drawable/sgt_logo_small"
         app:layout_constraintTop_toTopOf="@+id/signup"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Username"
-        android:textSize="24sp"
+        android:textSize="35sp"
         android:fontFamily="sans"
         android:textColor="@color/colorText"
         app:layout_constraintTop_toBottomOf="@+id/sgtlogo"
@@ -37,10 +34,11 @@
     <EditText
         android:id="@+id/emailentry"
         android:layout_height="wrap_content"
-        android:layout_width="250sp"
+        android:layout_width="175sp"
         android:background="@color/colorTextBoxBackground"
         android:textColor="@color/colorText"
         android:gravity="center_horizontal"
+
         app:layout_constraintTop_toBottomOf="@+id/emailprompt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,7 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Password"
-        android:textSize="24sp"
+        android:layout_marginTop="35dp"
+        android:textSize="35sp"
         android:fontFamily="sans"
         android:textColor="@color/colorText"
         app:layout_constraintTop_toBottomOf="@+id/emailentry"
@@ -62,10 +61,11 @@
     <EditText
         android:id="@+id/passentry"
         android:layout_height="wrap_content"
-        android:layout_width="125sp"
+        android:layout_width="175sp"
         android:background="@color/colorTextBoxBackground"
         android:textColor="@color/colorText"
         android:gravity="center_horizontal"
+
         app:layout_constraintTop_toBottomOf="@+id/passprompt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -78,7 +78,7 @@
         android:id="@+id/loginbutton"
         android:text="log in"
         android:textColor="@color/colorText"
-        android:background="@color/colorBackground"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
