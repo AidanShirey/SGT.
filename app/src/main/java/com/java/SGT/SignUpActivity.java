@@ -173,6 +173,7 @@ public class SignUpActivity extends Activity {
                     intent.putExtra("username", username);
                     intent.putExtra("login", false);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(SignUpActivity.this, "Username error: username already exists.", Toast.LENGTH_SHORT).show();
