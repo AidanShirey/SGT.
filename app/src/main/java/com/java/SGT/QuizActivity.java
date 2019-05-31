@@ -390,8 +390,8 @@ public class QuizActivity extends Activity {
                             // the first and second choices
 
                             // Set up the correct paths to get to the choices needed
-                            choice1selectpath = choice1selectpath + 2;
-                            choice2selectpath = choice2selectpath + 2;
+                            choice1selectpath = choice3selectpath + 1;
+                            choice2selectpath = choice3selectpath + 2;
                             choice3selectpath = choice3selectpath + 2;
                             choice3answer.setVisibility(View.INVISIBLE);
                             choice3.setVisibility(View.INVISIBLE);
@@ -423,9 +423,13 @@ public class QuizActivity extends Activity {
                             });
                         }
                         else if (type.equals("m")) {
-                            choice1selectpath += 3;
-                            choice2selectpath += 3;
-                            choice3selectpath += 3;
+                            choice1selectpath = choice3selectpath + 1;
+                            choice2selectpath = choice3selectpath + 2;
+                            choice3selectpath = choice3selectpath + 3;
+                            if (choice3answer.getVisibility() == View.INVISIBLE || choice3.getVisibility() == View.INVISIBLE) {
+                                choice3.setVisibility(View.VISIBLE);
+                                choice3answer.setVisibility(View.VISIBLE);
+                            }
                             myRef.child(quizselectpath).child("choices").child(choice1selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -534,6 +538,10 @@ public class QuizActivity extends Activity {
                             choice1selectpath = 0;
                             choice2selectpath = 1;
                             choice3selectpath = 2;
+                            if (choice3answer.getVisibility() == View.INVISIBLE || choice3.getVisibility() == View.INVISIBLE) {
+                                choice3.setVisibility(View.VISIBLE);
+                                choice3answer.setVisibility(View.VISIBLE);
+                            }
                             myRef.child(quizselectpath).child("choices").child(choice1selectpath.toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
