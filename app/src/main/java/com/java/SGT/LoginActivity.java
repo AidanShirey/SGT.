@@ -36,6 +36,8 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        // Find all views that may need to be modified
         wheel = findViewById(R.id.progress);
         logo = findViewById(R.id.sgtlogo);
         login = findViewById(R.id.loginbutton);
@@ -43,7 +45,11 @@ public class LoginActivity extends Activity {
         username = findViewById(R.id.userentry);
         pass = findViewById(R.id.passentry);
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+
+        // Set up database connection for queries
         database = FirebaseDatabase.getInstance();
+
+        // Check if the loading wheel is visible
         if (wheel.getVisibility() == View.VISIBLE)
             wheel.setVisibility(View.INVISIBLE);
         if (login.getVisibility() == View.INVISIBLE)
@@ -97,15 +103,18 @@ public class LoginActivity extends Activity {
 
     }
 
-
+    // A function to hide the keyboard when the user
+    // taps on blank space.
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    // A function where we determine if the entered information
+    // is correct, meaning that the information entered will be
+    // able to be queried.
     public boolean validateInfo(User users)
     {
-        // Here we check if the entered information is correct
         // Check if username is in correct format
         String temp = users.usern;
         for (int i = 0; i < temp.length();i++)
@@ -126,7 +135,9 @@ public class LoginActivity extends Activity {
     }
 
 
-
+    // A function where we check if the users entered information
+    // already exists within the database, so we can retrieve the
+    // information to load within the home activity.
     public void existCheck(User users){
         myRef.child(users.usern).child("password").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

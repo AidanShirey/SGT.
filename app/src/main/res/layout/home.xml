@@ -51,15 +51,37 @@
                 app:layout_constraintBottom_toBottomOf="@id/topbar"
 
                 />
+
+
     </android.support.constraint.ConstraintLayout>
 
 
-    <ListView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lvcard"
-        android:divider="@android:color/transparent">
-    </ListView>
+        android:layout_height="wrap_content"
+        android:text="Assigned Tasks"
+        android:textColor="@color/colorText"
+        android:textSize="32sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center_horizontal"
+        />
 
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lvcard"
+                android:divider="@android:color/transparent"
+            >
+            </ListView>
+
+            <ListView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/reference"
+                android:divider="@android:color/transparent"
+                >
+            </ListView>
 
 </LinearLayout>

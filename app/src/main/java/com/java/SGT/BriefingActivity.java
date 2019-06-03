@@ -43,7 +43,11 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
         Intent mintent = getIntent();
         namestring = mintent.getExtras().getString("username");
         select = getIntent().getIntExtra("taskselect", 0);
+
+        // Find all views that may need to be modified
         button = findViewById(R.id.quizbutton);
+        pdfview = findViewById(R.id.pdfView);
+        // Set up listeners
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +59,7 @@ public class BriefingActivity extends Activity implements OnPageChangeListener, 
                 finish();
             }
         });
-        pdfview = findViewById(R.id.pdfView);
+
         if (select == 1)
             displayFromAsset(file1);
         else if (select == 2)

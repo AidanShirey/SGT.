@@ -40,7 +40,7 @@ public class SignUpActivity extends Activity {
 
         database = FirebaseDatabase.getInstance();
 
-        // SET UP INTERACTIONS
+        // Find all views that may need to be accessed within the activity
         wheel = findViewById(R.id.progress);
         logo = findViewById(R.id.sgtlogo);
         user = findViewById(R.id.userentry);
@@ -51,8 +51,7 @@ public class SignUpActivity extends Activity {
         pass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         confirmpass.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
-        // SET UP LISTENERS
-
+        // Set up listeners
         user.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -99,7 +98,6 @@ public class SignUpActivity extends Activity {
                 cpassword = confirmpass.getText().toString();
                 eml = email.getText().toString();
                 User nuser = new User(username, eml, password);
-                //createAccount(username, eml, password);
                 ultimateuser = nuser;
                 myRef = database.getReference("users");
                 infocheck = validateInfo(ultimateuser, cpassword);
@@ -110,13 +108,18 @@ public class SignUpActivity extends Activity {
 
     }
 
+
+    // A function to hide the keyboard when the user
+    // taps on blank space.
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    // A function where we determine if the entered information
+    // is correct, meaning that the information entered will be
+    // able to be entered in the database for retrieval.
     public boolean validateInfo (User users, String conpass){
-        // Here we check if the entered information is correct
         // Check if username is in correct format
         String temp = users.usern;
         for (int i = 0; i < temp.length();i++)
@@ -163,6 +166,10 @@ public class SignUpActivity extends Activity {
         return true;
     }
 
+    // A function where we check if the users entered information
+    // already exists within the database to prevent overwriting
+    // other people's data. Our main concern is that the username
+    // the user enters is unique when they enter it.
     public void existCheck(User users) {
         myRef.child(users.usern).child("usern").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
