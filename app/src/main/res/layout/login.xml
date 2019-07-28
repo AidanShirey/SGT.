@@ -24,7 +24,7 @@
         android:id="@+id/userprompt"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Username"
+        android:text="bobbert"
         android:textSize="35sp"
         android:fontFamily="sans"
         android:textColor="@color/colorText"
