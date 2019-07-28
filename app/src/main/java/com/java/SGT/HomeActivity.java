@@ -3,18 +3,15 @@ package com.java.SGT;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
@@ -23,19 +20,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends Activity {
-    private Context mContext;
     private ListView cards;
     private CardArrayAdapter cardArrayAdapter;
-    private ListView cardcomplete;
-    private CardArrayAdapter comcard;
-    private ListView reference;
-    private CardArrayAdapter refAdapter;
     private CardView card;
-    private CardView refcard;
     private TextView name;
     private TextView rank;
-    private Integer id = 1001;
     private String namestring = "Name";
     private Integer position;
     private User user;
@@ -48,9 +40,11 @@ public class HomeActivity extends Activity {
 
         // Find all views that may need to be modified
         cards = findViewById(R.id.lvcard);
-        reference = findViewById(R.id.reference);
         name = findViewById(R.id.name);
         rank = findViewById(R.id.rank);
+
+        cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.id.lvcard);
+        cards.setAdapter(cardArrayAdapter);
 
 
         Intent mintent = getIntent();
@@ -75,32 +69,26 @@ public class HomeActivity extends Activity {
         });
 
 
-        // Set up list
-        cards.addHeaderView(new View(this));
-        cards.addFooterView(new View(this));
-
         // Set up card adapters
-        cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.id.lvcard);
-        comcard = new CardArrayAdapter(getApplicationContext(), R.layout.cardviewcomplete);
-        refAdapter = new CardArrayAdapter(getApplicationContext(), R.layout.cardviewlayout);
 
 
         for (int i = 0; i < 10; i++) {
             addcard(i);
         }
-        cards.setAdapter(cardArrayAdapter);
+
+
+
+
         cards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // switch to briefing activity
                 Intent intent = new Intent(getApplicationContext(), BriefingActivity.class);
-                intent.putExtra("taskselect", position);
+                intent.putExtra("taskselect", position + 1 );
                 intent.putExtra("username", namestring);
                 startActivity(intent);
             }
         });
-
-
     }
 
     public void addcard(Integer pos)
@@ -115,12 +103,12 @@ public class HomeActivity extends Activity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 boolean temp = dataSnapshot.getValue(boolean.class);
-                if (!temp) {
-                    ListViewItem list = new ListViewItem(card, CardArrayAdapter.TYPE_INCOMPLETE);
+                if (temp == false) {
+                    ListViewItem list = new ListViewItem(card, ItemArrayAdapter.TYPE_INCOMPLETE);
                     cardArrayAdapter.add(list);
                 }
-                if (temp) {
-                    ListViewItem list = new ListViewItem(card, CardArrayAdapter.TYPE_COMPLETE);
+                else if (temp == true) {
+                    ListViewItem list = new ListViewItem(card, ItemArrayAdapter.TYPE_COMPLETE);
                     cardArrayAdapter.add(list);
                 }
             }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ public class QuizActivity extends Activity {
     private TextView topbar;
     private TextView question;
     private TextView score;
+    private ImageView check;
     private Integer intscore = 0;
     private Button choice1;
     private Button choice2;
@@ -59,6 +61,7 @@ public class QuizActivity extends Activity {
         choice3answer = findViewById(R.id.choice3answer);
         question = findViewById(R.id.question);
         score = findViewById(R.id.score);
+        check = findViewById(R.id.checkcom);
 
         // Set up database references to be used while the quiz is being taken
         database = FirebaseDatabase.getInstance();
@@ -72,6 +75,7 @@ public class QuizActivity extends Activity {
 
         // initialize the quiz accordingly
         quizinit();
+        checkcomplete();
     }
 
     // A function to determine which quiz is pressed
@@ -605,6 +609,22 @@ public class QuizActivity extends Activity {
     public void markcomplete(){
         boolean complete = true;
         completeRef.child(namestring).child(quizselectpath).setValue(complete);
+    }
+
+    public void checkcomplete(){
+        completeRef.child(namestring).child(quizselectpath).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Boolean checkcomplete = dataSnapshot.getValue(Boolean.class);
+                if (checkcomplete)
+                    check.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
 

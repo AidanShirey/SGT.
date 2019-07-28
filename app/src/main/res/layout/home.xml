@@ -72,16 +72,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/lvcard"
                 android:divider="@android:color/transparent"
-            >
-            </ListView>
+            />
 
-            <ListView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:visibility="gone"
-                android:id="@+id/reference"
-                android:divider="@android:color/transparent"
-                >
-            </ListView>
+
 
 </LinearLayout>

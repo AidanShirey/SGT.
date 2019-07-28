@@ -6,6 +6,7 @@
     <color name="colorTextBoxBackground">#414141</color>
     <color name="colorCardColor">#1e1e1e</color>
     <color name="colorText">#f3c463</color>
+    <color name="colorCheck">#64e764</color>
     <color name="colorAccent">#f3c463</color>
-    <color name="colorTopbar">#414141</color>>
+    <color name="colorTopbar">#414141</color>
 </resources>

@@ -1,9 +1,6 @@
 package com.java.SGT;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,10 +52,7 @@ public class CardArrayAdapter  extends ArrayAdapter<ListViewItem> {
         CardViewHolder viewHolder;
         int listtype = getItemViewType(position);
         if (row == null) {
-            if(listtype == TYPE_COMPLETE)
-                row = LayoutInflater.from(getContext()).inflate(R.layout.cardviewcomplete, null);
-            else
-                row = LayoutInflater.from(getContext()).inflate(R.layout.cardviewlayout, null);
+            row = LayoutInflater.from(getContext()).inflate(R.layout.cardviewlayout, null);
             viewHolder = new CardViewHolder();
             viewHolder.line1 = row.findViewById(R.id.line1);
             row.setTag(viewHolder);
